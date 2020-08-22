@@ -1,0 +1,80 @@
+body {
+    background-color: #e7e7e7;
+}
+
+header {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #5f9ace;
+    cursor: default;
+    height: 3em;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.button {
+    color: white;
+    cursor: pointer;
+    font-weight: 300;
+    height: 3rem;
+    line-height: 3rem;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #4f90c9;
+}
+
+section {
+    margin: 6rem 3rem;
+    height: 500px;
+}
+
+article {
+    background-color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 2em 5em;
+    margin: 1em 0;
+    box-shadow: 2px 2px 2px 1px lightgrey;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#introduction h2 {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+article p {
+    line-height: 1.5em;
+    margin: 1em 0;
+}
+
+figure {
+    text-align: center;
+    padding: 1em;
+}
+
+figcaption {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    color: gray;
+}
+
+#picture {
+    margin-top: 1em;;
+    text-align: center;
+}
+
+img {
+    border: 1px solid black;
+    max-width: 250px;
+    width: 100%;
+}
