@@ -8,7 +8,5 @@
   },
   "author": "Kai Yan",
   "license": "ISC",
-  "dependencies": {
-    "browser-sync": "^2.26.12"
-  }
+  "dependencies": {}
 }
