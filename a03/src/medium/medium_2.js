@@ -123,7 +123,7 @@ function getAvgMpgByYearAndHybrid() {
         for (let type in stat[year]) {
             let mpgs = {
                 city: stat[year][type].reduce((sum, car) => sum + car.city_mpg, 0) / stat[year][type].length, 
-                highway: stat[year][type].reduce((sum, car) => sum + car.city_mpg, 0) / stat[year][type].length
+                highway: stat[year][type].reduce((sum, car) => sum + car.highway_mpg, 0) / stat[year][type].length
             };
             stat[year][type] = mpgs;
         }
