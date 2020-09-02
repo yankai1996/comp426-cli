@@ -18,9 +18,12 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    return car_data.filter(
+        car => (car.horsepower >= minHorsepower && car.torque >= minTorque)
+    ).sort((a, b) => b.horsepower - a.horsepower);
 }
 
+// console.log(searchHighPower(mpg_data.slice(0, 20), 220, 200));
 
 /**
  * @param {array} car_data
@@ -33,7 +36,9 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    return car_data.filter(
+        car => (car.city_mpg >= minCity && car.torhighway_mpgque >= minHighway)
+    ).sort((a, b) => b.highway_mpg - a.highway_mpg);
 }
 
 
@@ -46,9 +51,10 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+    return car_data.filter(car => car.id.includes(searchTerm));
 }
 
+// console.log(searchName(mpg_data.slice(0, 20), "Audi A3"));
 
 /**
  * Find all cars made in the years asked for.
@@ -59,5 +65,5 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    return car_data.filter(car => years.includes(car.year));
 }

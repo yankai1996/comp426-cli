@@ -20,11 +20,15 @@ see under the methods section
  * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
  */
 export const allCarStats = {
-    avgMpg: undefined,
-    allYearStats: undefined,
-    ratioHybrids: undefined,
+    avgMpg: {
+        city: mpg_data.reduce((sum, car) => sum + car.city_mpg, 0) / mpg_data.length,
+        highway: mpg_data.reduce((sum, car) => sum + car.highway_mpg, 0) / mpg_data.length
+    },
+    allYearStats: getStatistics(mpg_data.map(x => x.year)),
+    ratioHybrids: mpg_data.filter(x => x.hybrid).length / mpg_data.length,
 };
 
+// console.log(allCarStats);
 
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
@@ -84,6 +88,46 @@ export const allCarStats = {
  * }
  */
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: Object.entries(mpg_data.reduce((dict, car) => {
+        if (car.hybrid) {
+            if (!(car.make in dict)) {
+                dict[car.make] = [];
+            }
+            dict[car.make].push(car.id);
+        }
+        return dict;
+    }, {})).map(entry => ({
+            "make": entry[0],
+            "hybrids": entry[1]
+    })),
+    avgMpgByYearAndHybrid: getAvgMpgByYearAndHybrid()
 };
+
+console.log(moreStats);
+
+function getAvgMpgByYearAndHybrid() {
+    let stat = mpg_data.reduce((dict, car) => {
+        let key = car.hybrid ? 'hybrid' : 'notHybrid'
+        if (!(car.year in dict)) {
+            dict[car.year] = {
+                hybrid: [],
+                notHybrid: []
+            };
+        }
+        dict[car.year][key].push(car);
+        return dict;
+    }, {});
+    // console.log(stat);
+
+    for (let year in stat) {
+        for (let type in stat[year]) {
+            let mpgs = {
+                city: stat[year][type].reduce((sum, car) => sum + car.city_mpg, 0) / stat[year][type].length, 
+                highway: stat[year][type].reduce((sum, car) => sum + car.city_mpg, 0) / stat[year][type].length
+            };
+            stat[year][type] = mpgs;
+        }
+    }
+    // console.log(stat);
+    return stat;
+}
