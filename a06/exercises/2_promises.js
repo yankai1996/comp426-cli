@@ -30,11 +30,20 @@ export function getHeroByIdPromise(heroData, id) {
   // 4. After 1.5 seconds, either execute the resolve() callback passing in the
   //    found hero as a parameter, or execute the reject() callback if no hero
   //    was found.
+  return new Promise((resolve, reject) => {
+    let hero = heroData.find(h => h.id == id);
+    setTimeout(() => {
+      if (hero === undefined) {
+        reject();
+      } else {
+        resolve(hero);
+      }
+    }, 1500);
+  });
 }
 
 
 // Uncomment this code to locally run your getHeroByIdCallback() function
-/*
 const hero2 = getHeroByIdPromise(heroData, 2)
   .then(hero => {
     console.log(`Found the hero with id ${hero.id}`, hero);
@@ -52,4 +61,3 @@ const heroError = getHeroByIdPromise(heroData, 20)
   .catch(error => {
     console.log(error);
   });
-*/
