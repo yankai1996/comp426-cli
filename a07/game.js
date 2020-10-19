@@ -190,5 +190,3 @@ Game.prototype.onLose = function(callback) {
 Game.prototype.onWin = function(callback) {
     callback(this.getGameState());
 }
-
-export default Game;
