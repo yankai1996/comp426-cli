@@ -1,3 +1,6 @@
+var EventEmitter = require('events').EventEmitter; 
+var event = new EventEmitter(); 
+
 class Game {
     constructor(size) {
         this.size = size;
@@ -78,9 +81,11 @@ Game.prototype.move = function(direction) {
             zeros--;
         }
     }
-
+    event.emit("move");
     this.won = this.isWon();
-    if (!this.won) this.over = this.isOver();
+    if (this.won) event.emit("win");
+    else this.over = this.isOver();
+    if (this.over) event.emit("over");
 
     return moved;
 }
