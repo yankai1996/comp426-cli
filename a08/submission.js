@@ -7,7 +7,6 @@
  */
 
 
-
 /**
  * This function should use axios to make a GET request to the following url:
  *   https://comp426fa19.cs.unc.edu/a08/heroes
@@ -124,7 +123,7 @@ export async function fn4() {
         });
         return result;
     } catch (error) {
-        console.log(error);
+        return error;
     }
 };
 
@@ -145,7 +144,7 @@ export async function fn4() {
 export async function fn5() {
     const result = await axios({
         method: 'put',
-        url: 'https://comp426-1fa20.cs.unc.edu/a08/hearders',
+        url: 'https://comp426-1fa20.cs.unc.edu/a08/headers',
         headers: {
             'my-custom-request-header': 'Hello, World!'
         }
@@ -173,10 +172,7 @@ export async function fn5() {
 export async function fn6() {
     const result = await axios({
         method: 'get',
-        url: 'https://comp426-1fa20.cs.unc.edu/a08/hearders',
-        headers: {
-            'my-custom-request-header': 'Hello, World!'
-        }
+        url: 'https://comp426-1fa20.cs.unc.edu/a08/headers',
     });
     return result['headers']['my-custom-response-header'];
 };
