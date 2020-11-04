@@ -3,6 +3,41 @@
     background-color: white;
 }
 
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rgb(29, 161, 242);
+    z-index: 100;
+}
+
+.header * {
+    color: inherit;
+    background-color: inherit;
+}
+
+.header span {
+    position: relative;
+    top: 0.3em;
+    left: 1.6em;
+    font-size: 1.5em;
+}
+
+.header i {
+    position: absolute;
+    top: 0.3em;
+}
+
+.content {
+    position: relative;
+    top: 3em;
+}
+
 .tweet {
     width: 500px;
     height: auto;
@@ -58,6 +93,7 @@
 
 .button i {
     color: inherit;
+    background-color: inherit;
 }
 
 .button:hover {
@@ -167,7 +203,7 @@
     background-color: inherit;
 }
 
-.create {
+.curtain {
     position: fixed;
     left: 0;
     top: 0;
@@ -225,4 +261,25 @@
 .button.cancel-tweet:hover {
     color: white;
     background-color: orangered;
+}
+
+.delete-panel {
+    position: relative;
+    width: 300px;
+    height: auto;
+    margin: 1em auto;
+    top: 40%;
+    padding: 1em 1em;
+    padding-top: 1.5em;
+    border: none;
+    border-radius: 1em;
+    box-shadow: 0 0 2em -0.25em gray;
+    transition-duration: 0.2s;
+}
+
+.delete-panel .button {
+    width: 6em;
+    margin: 0 1em;
+    border-width: 1px;
+    border-style: solid;
 }
